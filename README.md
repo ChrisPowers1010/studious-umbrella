@@ -277,3 +277,18 @@ Then run:
 cd "C:\Users\Christopher\Desktop\studious-umbrella"
 python .\it_workflow_agent.py triage --ticket-file .\examples\ticket.json
 ```
+
+## Emergency bootstrap (when repo is empty except `.gitkeep`)
+
+If your local checkout only contains `.gitkeep`, run this from PowerShell in that folder:
+
+```powershell
+cd "C:\Users\Christopher\Desktop\studious-umbrella"
+powershell -ExecutionPolicy Bypass -File .\bootstrap_windows.ps1
+python .\it_workflow_agent.py triage --ticket-file .\examples\ticket.json
+```
+
+This creates:
+- `it_workflow_agent.py`
+- `examples\ticket.json`
+- `examples\tickets.json`
