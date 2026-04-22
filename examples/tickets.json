@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Email delivery delay for onboarding notifications",
+    "description": "New hires are not receiving day-1 onboarding emails.",
+    "severity": "medium",
+    "business_impact": "single_team",
+    "requester": "hr-ops",
+    "system": "email-service"
+  },
+  {
+    "title": "Production API outage in customer portal",
+    "description": "Portal is down for all users. 500 errors started after deploy.",
+    "severity": "critical",
+    "business_impact": "all_hands_blocked",
+    "requester": "noc",
+    "system": "customer-portal"
+  },
+  {
+    "title": "Printer queue issue at HQ",
+    "description": "Users can print but jobs are delayed.",
+    "severity": "low",
+    "business_impact": "single_user",
+    "requester": "office-admin",
+    "system": "print-server"
+  }
+]

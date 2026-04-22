@@ -1,0 +1,8 @@
+{
+  "title": "VPN authentication failures for finance users",
+  "description": "Multiple finance users report being unable to connect since 08:10 UTC. Error: invalid SAML response.",
+  "severity": "high",
+  "business_impact": "multiple_teams",
+  "requester": "maria.chen",
+  "system": "vpn-gateway"
+}
