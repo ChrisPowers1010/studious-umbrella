@@ -207,3 +207,38 @@ Test-Path "C:\Users\Christopher\Desktop\studious-umbrella\examples\ticket.json"
 ```
 
 All three should return `True` before running the CLI.
+
+
+## If `it_workflow_agent.py` is still not found
+
+Your output indicates the folder exists but the script file is missing from that exact path.
+This usually means the ZIP extracted into a nested directory like:
+
+- `C:\Users\Christopher\Desktop\studious-umbrella\studious-umbrella\it_workflow_agent.py`
+- or a branch suffix folder, e.g. `studious-umbrella-main`
+
+Use this PowerShell search to locate the script:
+
+```powershell
+cd "C:\Users\Christopher\Desktop"
+Get-ChildItem -Path . -Filter it_workflow_agent.py -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+```
+
+Then `cd` into the parent directory shown and run:
+
+```powershell
+python .\it_workflow_agent.py triage --ticket-file .\examples\ticket.json
+```
+
+### No GitHub CLI required
+
+You do **not** need `gh repo clone`.
+The `HTTP 401` error is from unauthenticated GitHub CLI and can be ignored for now.
+Use one of these instead:
+
+```powershell
+# Option 1: Standard Git (no gh needed)
+git clone https://github.com/ChrisPowers1010/studious-umbrella.git
+
+# Option 2: Download ZIP from browser and extract
+```
