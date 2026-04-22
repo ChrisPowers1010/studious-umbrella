@@ -242,3 +242,38 @@ git clone https://github.com/ChrisPowers1010/studious-umbrella.git
 
 # Option 2: Download ZIP from browser and extract
 ```
+
+
+## When search returns nothing (no output)
+
+If this command prints nothing:
+
+```powershell
+Get-ChildItem -Path . -Filter it_workflow_agent.py -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+```
+
+then `it_workflow_agent.py` is not present anywhere under `Desktop`.
+That means the project files were not actually downloaded/extracted there.
+
+### What to do next (beginner-safe)
+
+1. **Do not use `gh repo clone`** unless you already ran `gh auth login`.
+2. Open this URL in your browser while signed into GitHub:
+   `https://github.com/ChrisPowers1010/studious-umbrella`
+3. Click **Code** -> **Download ZIP**.
+4. Extract to: `C:\Users\Christopher\Desktop\studious-umbrella`.
+5. Re-run checks:
+
+```powershell
+Test-Path "C:\Users\Christopher\Desktop\studious-umbrella\it_workflow_agent.py"
+Test-Path "C:\Users\Christopher\Desktop\studious-umbrella\examples\ticket.json"
+```
+
+Both must return `True`.
+
+Then run:
+
+```powershell
+cd "C:\Users\Christopher\Desktop\studious-umbrella"
+python .\it_workflow_agent.py triage --ticket-file .\examples\ticket.json
+```
